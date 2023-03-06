@@ -12,11 +12,11 @@ CREATE TABLE menu_items (
 	item_id SERIAL,
 	item_name varchar(100) NOT NULL,
 	description varchar(300) NOT NULL,
-	price decimal(3, 2) NOT NULL UNIQUE,
+	price decimal(4, 2) NOT NULL UNIQUE,
 	item_count integer DEFAULT 0,
 	weekly_sales integer NULL,
-	weekly_revenue decimal(5, 2) NULL,
-	total_revenue decimal(10, 2) NULL,
+	weekly_revenue decimal(6, 2) NULL,
+	total_revenue decimal(11, 2) NULL,
 	CONSTRAINT PK_item_id PRIMARY KEY (item_id)
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE inventory (
 	description varchar(300) NOT NULL,
 	unit_measurement varchar(200) NOT NULL,
 	units integer DEFAULT 0,
-	price_per_unit decimal(3, 2) NOT NULL,
+	price_per_unit decimal(4, 2) NOT NULL,
 	date_received date NOT NULL,
 	CONSTRAINT PK_ingredient_id PRIMARY KEY (ingredient_id)
 );
@@ -40,7 +40,7 @@ CREATE TABLE employees (
     age smallint NULL,
     email varchar(100) NULL,
     phone_number varchar(10) NULL,
-    hourly_wage decimal(2, 2) NOT NULL,
+    hourly_wage decimal(3, 2) NOT NULL,
     CONSTRAINT PK_employee_id PRIMARY KEY (employee_id)
 );
 
@@ -67,10 +67,10 @@ CREATE TABLE timesheet (
 
 CREATE TABLE tabs (
     tab_id SERIAL,
-    subtotal decimal(5, 2) NOT NULL,
-    tax decimal(3, 2) NOT NULL,
-    tip decimal(3, 2) NULL,
-    total decimal(5, 2) NOT NULL,
+    subtotal decimal(6, 2) NOT NULL,
+    tax decimal(4, 2) NOT NULL,
+    tip decimal(4, 2) NULL,
+    total decimal(6, 2) NOT NULL,
     isProcessed boolean NOT NULL,
     CONSTRAINT PK_tab_id PRIMARY KEY (tab_id)
 );
@@ -80,7 +80,7 @@ CREATE TABLE sales (
     tab_id integer NOT NULL,
     user_id integer NOT NULL,
     item_id integer NOT NULL,
-    price decimal(3, 2) NOT NULL,
+    price decimal(4, 2) NOT NULL,
     units smallint NOT NULL,
     CONSTRAINT PK_sale_id PRIMARY KEY (sale_id),
     CONSTRAINT FK_tab_id FOREIGN KEY (tab_id) REFERENCES tabs(tab_id),
