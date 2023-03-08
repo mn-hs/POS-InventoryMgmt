@@ -1,5 +1,6 @@
 package com.InventoryMgmt.POSInventoryManagement.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ public class Employee {
     private String role;
     private String position;
     private int pin;
-    private Date employmentStartDate;
+    private LocalDate employmentStartDate;
     private int age;
     private String email;
     private String phoneNumber;
@@ -22,7 +23,7 @@ public class Employee {
     public Employee(){}
 
     public Employee(int employeeId, String firstName, String lastName, String username, String password, String role,
-                    String position, int pin, Date employmentStartDate, int age, String email, String phoneNumber,
+                    String position, int pin, LocalDate employmentStartDate, int age, String email, String phoneNumber,
                     double hourlyWage, boolean activated) {
         this.employeeId = employeeId;
         this.firstName = firstName;
@@ -120,11 +121,11 @@ public class Employee {
         this.pin = Integer.parseInt(phoneNumber.substring(phoneNumber.length() - 4));
     }
 
-    public Date getEmploymentStartDate() {
+    public LocalDate getEmploymentStartDate() {
         return employmentStartDate;
     }
 
-    public void setEmploymentStartDate(Date employmentStartDate) {
+    public void setEmploymentStartDate(LocalDate employmentStartDate) {
         this.employmentStartDate = employmentStartDate;
     }
 

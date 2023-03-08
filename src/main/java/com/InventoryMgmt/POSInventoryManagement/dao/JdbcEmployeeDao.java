@@ -99,7 +99,7 @@ public class JdbcEmployeeDao implements EmployeeDao {
         employee.setRole(rs.getString("role"));
         employee.setPosition(rs.getString("position"));
         employee.setPin(Objects.requireNonNull(rs.getString("phone_number")));
-        employee.setEmploymentStartDate(rs.getDate("employment_start_date"));
+        employee.setEmploymentStartDate(rs.getDate("employment_start_date").toLocalDate());
         employee.setAge(rs.getInt("age"));
         employee.setEmail(rs.getString("email"));
         employee.setPhoneNumber(rs.getString("phone_number"));
