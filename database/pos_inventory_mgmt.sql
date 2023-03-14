@@ -90,10 +90,10 @@ CREATE TABLE users (
     CONSTRAINT FK_employee_user_id FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
-INSERT INTO employees (first_name, last_name, position, phone_number, hourly_wage) VALUES 
-('Hunter', 'Mnich', 'Barback', '413-636-4907', 5.00);
+INSERT INTO employees (first_name, last_name, position, phone_number, hourly_wage) VALUES
+('Hunter', 'Mnich', 'Barback', '000-000-0000', 5.00);
 
 INSERT INTO users (username, password_hash, role, enabled, employee_id) VALUES
-('admin', 'admin1', 'ROLE_USER', true, 1);
+('admin', 'admin1', 'ROLE_ADMIN', true, 1);
 
 COMMIT TRANSACTION;
