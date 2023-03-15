@@ -8,6 +8,7 @@ import java.util.Set;
 
 public class User {
     private int id;
+    private String name;
     private String username;
     private int employeeId;
     @JsonIgnore
@@ -20,17 +21,18 @@ public class User {
     public User() { }
 
 
-    public User(int id, String username, int employeeId, String password, String authorities) {
+    public User(int id, String username, int employeeId, String password, String authorities, String name) {
         this.id = id;
         this.username = username;
         this.password = password;
         if(authorities != null) this.setAuthorities(authorities);
         this.employeeId = employeeId;
+        this.name = name;
         this.activated = true;
     }
 
-    public User(String username, int employeeId, String password, String authorities) {
-        this(0, username, employeeId, password, authorities);
+    public User(String username, int employeeId, String password, String authorities, String name) {
+        this(0, username, employeeId, password, authorities, name);
     }
 
     public int getId() {
@@ -48,6 +50,10 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getName() {return name;}
+
+    public void setName(String name) {this.name = name;}
 
     public int getEmployeeId() {return employeeId;}
 
@@ -104,6 +110,7 @@ public class User {
         User user = (User) o;
         return id == user.id &&
                 activated == user.activated &&
+                Objects.equals(name, user.name) &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(password, user.password) &&
                 Objects.equals(employeeId, user.employeeId) &&
@@ -119,8 +126,9 @@ public class User {
     public String toString() {
         return "User{" +
                 "userId=" + id +
+                ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
-                "employeeId=" + employeeId +
+                ", employeeId=" + employeeId +
                 ", activated=" + activated +
                 ", authorities=" + authorities +
                 '}';

@@ -85,14 +85,12 @@ CREATE TABLE users (
     username varchar(45) NOT NULL,
     password_hash varchar(200) NOT NULL,
     role varchar(45) NOT NULL,
+    name varchar(50) NOT NULL,
     employee_id integer NOT NULL,
     CONSTRAINT FK_employee_user_id FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
 INSERT INTO employees (first_name, last_name, position, phone_number, hourly_wage) VALUES
 ('Hunter', 'Mnich', 'Barback', '000-000-0000', 5.00);
-
-INSERT INTO users (username, password_hash, role, employee_id) VALUES
-('admin', 'admin1', 'ROLE_ADMIN', 1);
 
 COMMIT TRANSACTION;
