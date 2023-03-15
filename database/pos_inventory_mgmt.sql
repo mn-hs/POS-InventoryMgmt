@@ -92,7 +92,7 @@ CREATE TABLE users (
 INSERT INTO employees (first_name, last_name, position, phone_number, hourly_wage) VALUES
 ('Hunter', 'Mnich', 'Barback', '000-000-0000', 5.00);
 
-INSERT INTO users (username, password_hash, role, enabled, employee_id) VALUES
+INSERT INTO users (username, password_hash, role, employee_id) VALUES
 ('admin', 'admin1', 'ROLE_ADMIN', 1);
 
 COMMIT TRANSACTION;
