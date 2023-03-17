@@ -15,9 +15,6 @@ CREATE TABLE menu_items (
 	description varchar(300) NOT NULL,
 	price decimal(4, 2) NOT NULL UNIQUE,
 	item_count integer DEFAULT 0,
-	weekly_sales integer NULL,
-	weekly_revenue decimal(6, 2) NULL,
-	total_revenue decimal(11, 2) NULL,
 	CONSTRAINT PK_item_id PRIMARY KEY (item_id)
 );
 
