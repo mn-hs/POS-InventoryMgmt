@@ -1,7 +1,6 @@
 package com.InventoryMgmt.POSInventoryManagement.dao;
 
 import com.InventoryMgmt.POSInventoryManagement.model.User;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class JdbcUserDao implements UserDao{

@@ -3,6 +3,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS timesheet;
 DROP TABLE IF EXISTS tabs;
+DROP TABLE IF EXISTS menu_item_ingredient;
 DROP TABLE IF EXISTS inventory;
 DROP TABLE IF EXISTS menu_items;
 DROP TABLE IF EXISTS users;
@@ -78,6 +79,14 @@ CREATE TABLE sales (
     CONSTRAINT FK_employee_id_sales FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
     CONSTRAINT FK_item_id FOREIGN KEY (item_id) REFERENCES menu_items(item_id),
     CONSTRAINT FK_price FOREIGN KEY (price) REFERENCES menu_items(price)
+);
+
+CREATE TABLE menu_item_ingredient (
+    menu_item_id integer NOT NULL,
+    ingredient_id integer NOT NULL,
+    CONSTRAINT unique_combo UNIQUE (menu_item_id, ingredient_id),
+    CONSTRAINT FK_menu_item_linked FOREIGN KEY (menu_item_id) REFERENCES menu_items(item_id),
+    CONSTRAINT FK_ingredient_id_linked FOREIGN KEY (ingredient_id) REFERENCES inventory(ingredient_id)
 );
 
 CREATE TABLE users (
