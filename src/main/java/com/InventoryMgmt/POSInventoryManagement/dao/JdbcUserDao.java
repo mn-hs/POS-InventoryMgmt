@@ -95,6 +95,17 @@ public class JdbcUserDao implements UserDao{
         return getUserById(userId);
     }
 
+    @Override
+    public boolean delete(int userId) {
+        boolean successful = false;
+        String sql = "DELETE FROM users WHERE user_id = ?";
+        int rowsUpdated = jdbcTemplate.update(sql, userId);
+        if (rowsUpdated > 0){
+            successful = true;
+        }
+        return successful;
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));

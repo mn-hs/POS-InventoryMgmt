@@ -17,4 +17,6 @@ public interface UserDao {
     int findIdByUsername(String username);
 
     User create(User newUser);
+
+    boolean delete(int userId);
 }
